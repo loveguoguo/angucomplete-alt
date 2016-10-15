@@ -1,4 +1,4 @@
-var app = angular.module('app', ["ngTouch", "angucomplete-alt"]);
+var app = angular.module('app', ["ngTouch", "angucomplete-multiselect"]);
 
 app.controller('MainController', ['$scope', '$http', '$rootScope',
   function MainController($scope, $http, $rootScope) {
@@ -13,6 +13,10 @@ app.controller('MainController', ['$scope', '$http', '$rootScope',
         console.log('cleared');
       }
     };
+	
+	$scope.display_selected_objects = function(){
+		alert($scope.mycountries);
+	}
 
     $scope.localSearch = function(str, people) {
       var matches = [];
