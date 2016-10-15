@@ -1,5 +1,5 @@
 /*
- * angucomplete-alt
+ * angucomplete-multiselect
  * Autocomplete directive for AngularJS
  * This is a fork of Daryl Rowland's angucomplete with some extra features.
  * By Hidenari Nozaki
@@ -41,7 +41,7 @@
     var REQUIRED_CLASS = 'autocomplete-required';
     var TEXT_SEARCHING = 'Searching...';
     var TEXT_NORESULTS = 'No results found';
-    var TEMPLATE_URL = '/angucomplete-alt/index.html';
+    var TEMPLATE_URL = '/angucomplete-multiselect/index.html';
 
     // Set the default template for this directive
     $templateCache.put(TEMPLATE_URL,
@@ -119,7 +119,7 @@
         }
       });
 
-      scope.$on('angucomplete-alt:clearInput', function (event, elementId) {
+      scope.$on('angucomplete-multiselect:clearInput', function (event, elementId) {
         if (!elementId || elementId === scope.id) {
           scope.searchStr = null;
           callOrAssign();
@@ -128,7 +128,7 @@
         }
       });
 
-      scope.$on('angucomplete-alt:changeInput', function (event, elementId, newval) {
+      scope.$on('angucomplete-multiselect:changeInput', function (event, elementId, newval) {
         if (!!elementId && elementId === scope.id) {
           handleInputChange(newval);
         }
