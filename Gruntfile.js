@@ -36,7 +36,7 @@ module.exports = function (grunt) {
     jshint: {
       all:[
         'gruntFile.js',
-        'angucomplete-alt.js',
+        'angucomplete-multiselect.js',
         'test/**/*.spec.js'
       ],
       options: {
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
       },
       build: {
         files: {
-          'dist/angucomplete-alt.min.js': ['angucomplete-alt.js']
+          'dist/angucomplete-multiselect.min.js': ['angucomplete-multiselect.js']
         }
       }
     }
