@@ -1,18 +1,18 @@
 {
-  "name": "angucomplete-alt",
+  "name": "angucomplete-multiselect",
   "version": "2.5.0",
   "description": "Awesome Autocompleteness for AngularJS",
-  "author": "ghiden",
-  "email": "hidenari@gmail.com",
+  "author": "loveguoguo",
+  "email": "zhouxi.1245@163.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghiden/angucomplete-alt.git"
+    "url": "https://github.com/loveguoguo/angucomplete-multiselect.git"
   },
   "engines": {
     "node": ">= 0.8.4"
   },
   "license": "MIT",
-  "main": "./angucomplete-alt.js",
+  "main": "./angucomplete-multiselect.js",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
