@@ -22,7 +22,7 @@
 }(window, function (angular) {
   'use strict';
 
-  angular.module('angucomplete-alt', []).directive('angucompleteAlt', ['$q', '$parse', '$http', '$sce', '$timeout', '$templateCache', '$interpolate', function ($q, $parse, $http, $sce, $timeout, $templateCache, $interpolate) {
+  angular.module('angucomplete-multiselect', []).directive('angucompleteMultiselect', ['$q', '$parse', '$http', '$sce', '$timeout', '$templateCache', '$interpolate', function ($q, $parse, $http, $sce, $timeout, $templateCache, $interpolate) {
     // keyboard events
     var KEY_DW  = 40;
     var KEY_RT  = 39;
@@ -46,6 +46,7 @@
     // Set the default template for this directive
     $templateCache.put(TEMPLATE_URL,
         '<div class="angucomplete-holder" ng-class="{\'angucomplete-dropdown-visible\': showDropdown}">' +
+		'<span ng-repeat="x in selectedObjects">{{x.title}}<button type="button" ng-click="popobject($index)">x</button></span>' +
         '  <input id="{{id}}_value" name="{{inputName}}" tabindex="{{fieldTabindex}}" ng-class="{\'angucomplete-input-not-empty\': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="{{inputType}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" ng-focus="onFocusHandler()" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)"/>' +
         '  <div id="{{id}}_dropdown" class="angucomplete-dropdown" ng-show="showDropdown">' +
         '    <div class="angucomplete-searching" ng-show="searching" ng-bind="textSearching"></div>' +
@@ -162,6 +163,13 @@
         return event.which ? event.which : event.keyCode;
       }
 
+	  function clearInput(){
+		scope.searchStr = null;
+          //callOrAssign();
+          //handleRequired(false);
+          //clearResults();
+	  }
+	  
       function callOrAssign(value) {
         if (typeof scope.selectedObject === 'function') {
           scope.selectedObject(value, scope.selectedObjectData);
@@ -170,12 +178,19 @@
           scope.selectedObject = value;
         }
 
+
         if (value) {
           handleRequired(true);
         }
         else {
           handleRequired(false);
         }
+		if(scope.multipleSelect && value){
+			pushobjects(value);
+			clearInput();
+			
+		}
+		
       }
 
       function callFunctionOrIdentity(fn) {
@@ -466,6 +481,27 @@
         }
       }
 
+	  function pushobjects(value) {
+		var field = scope.myField;
+		if(field == undefined){
+			field = 'id';
+		}
+		if (scope.selectedObjects == undefined){
+			scope.selectedObjects = [value,]
+
+			scope.myModel = [value.originalObject[field],]
+		}
+		else{
+			scope.selectedObjects.push(value);
+			scope.myModel.push(value.originalObject[field])
+			}
+      }
+		
+		scope.popobject = function(index){
+			scope.selectedObjects.splice(index, 1);
+			scope.myModel.splice(index, 1);
+		}
+	  
       function getRemoteResults(str) {
         var params = {},
             url = scope.remoteUrl + encodeURIComponent(str);
@@ -510,6 +546,8 @@
         }
       }
 
+	  
+	  
       function initResults() {
         scope.showDropdown = displaySearching;
         scope.currentIndex = scope.focusFirst ? 0 : -1;
@@ -778,14 +816,21 @@
         var css = getComputedStyle(dd);
         isScrollOn = css.maxHeight && css.overflowY === 'auto';
       });
+
     }
 
+	 
     return {
       restrict: 'EA',
       require: '^?form',
       scope: {
         selectedObject: '=',
         selectedObjectData: '=',
+		pushobjects: '=',
+		selectedObjects: '=',
+		multipleSelect: '=',
+		myModel: '=',
+		myField: '@',
         disableInput: '=',
         initialValue: '=',
         localData: '=',
