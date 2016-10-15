@@ -4,11 +4,11 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" id="ng-app" ng-app="app"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" id="ng-app" ng-app="app"> <!--<![endif]-->
   <head>
-    <title>Angucomplete Alt: Autocomplete Directive for AngularJS</title>
+    <title>Angucomplete MultiSelect: Autocomplete Directive for AngularJS</title>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width,initial-scale=1'>
-    <link rel="stylesheet" href="css/structure.css"/>
-    <link rel="stylesheet" href="css/angucomplete-alt.css"/>
+    <link rel="stylesheet" href="structure.css"/>
+    <link rel="stylesheet" href="angucomplete-multiselect.css"/>
     <link rel="stylesheet" href="fonts/bariol/bariol.css"/>
     </head>
   <body ng-controller="MainController">
@@ -17,23 +17,25 @@
       <script src="js/libs/json3.min.js"></script>
     <![endif]-->
 
-    <a href="https://github.com/ghiden/angucomplete-alt"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    <a href="https://github.com/ghiden/angucomplete-multiselect"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
 
     <div>
 
-      <h1>Angucomplete Alt</h1>
+      <h1>Angucomplete MultiSelect</h1>
       <h2>Awesome Autocompleteness for AngularJS</h2>
       <p>
-      A minimal looking autocomplete directive originally developed by Daryl Rowland as <a href="https://github.com/darylrowland/angucomplete">Angucomplete</a>, and I added a few tweaks to it and renamed it to <a href="https://github.com/ghiden/angucomplete-alt">angucomplete-alt</a>.
+      A minimal looking autocomplete directive originally developed by Daryl Rowland as <a href="https://github.com/darylrowland/angucomplete">Angucomplete</a>, and I added a few tweaks to it and renamed it to <a href="https://github.com/ghiden/angucomplete-multiselect">angucomplete-multiselect</a>.
       </p>
 
       <div>
         <ul>
+			<li><a href="#example5">Example 5 - MultiSelect Using GitHub Search API</a></li>
+		
           <li><a href="#example1">Example 1 - Countries of the World</a></li>
           <li><a href="#example2">Example 2 - Custom Search</a></li>
           <li><a href="#example3">Example 3 - Clear Result on Selection</a></li>
           <li><a href="#example4">Example 4 - Override Suggestions with Clear Result</a></li>
-          <li><a href="#example5">Example 5 - Using GitHub Search API</a></li>
+
           <li><a href="#example6">Example 6 - Show Matches in Both Name and Description</a></li>
           <li><a href="#example7">Example 7 - Callback</a></li>
           <li><a href="#example8">Example 8 - Required</a></li>
@@ -53,7 +55,7 @@
         <h3><a name="example1" class="page-anchor">Example 1 - Countries of the World</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt id="ex1"
+&lt;div angucomplete-multiselect id="ex1"
   placeholder="Search countries"
   maxlength="50"
   pause="100"
@@ -67,7 +69,7 @@
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex1" placeholder="Search countries" maxlength="50" pause="100" selected-object="selectedCountry" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
+          <div angucomplete-multiselect id="ex1" placeholder="Search countries" maxlength="50" pause="100" selected-object="selectedCountry" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
           </div>
         </div>
         <div class="result">
@@ -83,7 +85,7 @@
         <h3><a name="example2" class="page-anchor">Example 2 - Custom Search</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt id="ex2"
+&lt;div angucomplete-multiselect id="ex2"
   placeholder="Search people"
   pause="300"
   selected-object="selectedPerson"
@@ -115,7 +117,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex2" placeholder="Search people" pause="300" selected-object="selectedPerson" local-data="people" title-field="firstName,surname" description-field="twitter" image-field="pic" minlength="1" input-class="form-control form-control-small" match-class="highlight" local-search="localSearch">
+          <div angucomplete-multiselect id="ex2" placeholder="Search people" pause="300" selected-object="selectedPerson" local-data="people" title-field="firstName,surname" description-field="twitter" image-field="pic" minlength="1" input-class="form-control form-control-small" match-class="highlight" local-search="localSearch">
           </div>
         </div>
         <div class="result">
@@ -131,7 +133,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example3" class="page-anchor">Example 3 - Clear Result on Selection</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt id="ex3"
+&lt;div angucomplete-multiselect id="ex3"
   placeholder="Search countries"
   pause="100"
   selected-object="selectedCountry3"
@@ -146,7 +148,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex3" placeholder="Search countries" pause="100" selected-object="selectedCountry3" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" clear-selected="true">
+          <div angucomplete-multiselect id="ex3" placeholder="Search countries" pause="100" selected-object="selectedCountry3" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" clear-selected="true">
           </div>
         </div>
         <div class="result">
@@ -162,7 +164,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example4" class="page-anchor">Example 4 - Override Suggestion with Clear Results</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex4"
   placeholder="Search countries"
   pause="100"
@@ -179,7 +181,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex4" placeholder="Search countries" pause="100" selected-object="selectedCountry4" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" override-suggestions="true" clear-selected="true">
+          <div angucomplete-multiselect id="ex4" placeholder="Search countries" pause="100" selected-object="selectedCountry4" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" override-suggestions="true" clear-selected="true">
           </div>
         </div>
         <div class="result">
@@ -195,7 +197,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example5" class="page-anchor">Example 5 - Using GitHub Search API</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex5"
   placeholder="Search projects"
   pause="500"
@@ -212,8 +214,9 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex5" placeholder="Search projects" pause="500" selected-object="selectedProject" remote-url="https://api.github.com/search/repositories" remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="name" description-field="description" minlength="2" input-class="form-control form-control-small" match-class="highlight">
+          <div angucomplete-multiselect id="ex5" placeholder="Search projects" pause="500" selected-object="selectedProject" remote-url="https://api.github.com/search/repositories" remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="name" description-field="description" minlength="2" input-class="form-control form-control-small" match-class="highlight" multiple-select=true selected-objects="myobjects" my-model="mycountries"  my-field="id">
           </div>
+		  <button type='button' ng-click="display_selected_objects()">display objects</button>
         </div>
         <div class="result">
           <div class="" ng-show="selectedProject">
@@ -228,7 +231,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example6" class="page-anchor">Example 6 - Show Matches in Both Name and Description</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex6"
   placeholder="Search countries"
   pause="100"
@@ -244,7 +247,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex6" placeholder="Search countries" pause="100" selected-object="selectedCountry6" local-data="countries" search-fields="name,code" title-field="name" description-field="code" minlength="1" input-class="form-control form-control-small" match-class="highlight">
+          <div angucomplete-multiselect id="ex6" placeholder="Search countries" pause="100" selected-object="selectedCountry6" local-data="countries" search-fields="name,code" title-field="name" description-field="code" minlength="1" input-class="form-control form-control-small" match-class="highlight">
           </div>
         </div>
         <div class="result">
@@ -260,7 +263,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example7" class="page-anchor">Example 7 - Callback</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex7"
   placeholder="Search countries"
   pause="100"
@@ -275,10 +278,10 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex7" placeholder="Search countries" pause="100" selected-object="countrySelected" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
+          <div angucomplete-multiselect id="ex7" placeholder="Search countries" pause="100" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" multiple-select=true selected-objects="myobjects" my-model="mycountries"  my-field="code">
           </div>
         </div>
-
+		<button type='button' ng-click="display_selected_objects()">display objects</button>
       </div>
 
       <div class="large-padded-row">
@@ -288,7 +291,7 @@ $scope.localSearch = function(str, people) {
   &lt;h3&gt;&lt;a name="example8" class="page-anchor"&gt;Example 8 - Required&lt;/a&gt;&lt;span ng-show="form.$valid" class="valid-status valid"&gt;[VALID]&lt;/span&gt;&lt;span class="valid-status invalid" ng-show="form.$invalid"&gt;[INVALID]&lt;/span&gt;&lt;/h3&gt;
   &lt;div class="padded-row"&gt;
     &lt;span&gt;Choose two countries&lt;/span&gt;
-    &lt;div angucomplete-alt
+    &lt;div angucomplete-multiselect
       id="ex8a"
       placeholder="Search countries"
       pause="100"
@@ -303,7 +306,7 @@ $scope.localSearch = function(str, people) {
       input-name="country8a"&gt;
     &lt;/div&gt;
 
-    &lt;div angucomplete-alt
+    &lt;div angucomplete-multiselect
       id="ex8b"
       placeholder="Search countries"
       pause="100"
@@ -324,10 +327,10 @@ $scope.localSearch = function(str, people) {
           <h3><a name="example8" class="page-anchor">Example 8 - Required</a><span ng-show="form.$valid" class="valid-status valid">[VALID]</span><span class="valid-status invalid" ng-show="form.$invalid">[INVALID]</span></h3>
           <div class="padded-row">
             <span>Choose two countries</span>
-            <div angucomplete-alt id="ex8a" placeholder="Search countries" pause="100" selected-object="countrySelected8a" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" field-required="true" input-name="country8a">
+            <div angucomplete-multiselect id="ex8a" placeholder="Search countries" pause="100" selected-object="countrySelected8a" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" field-required="true" input-name="country8a">
             </div>
 
-            <div angucomplete-alt id="ex8b" placeholder="Search countries" pause="100" selected-object="countrySelected8b" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" field-required="true" input-name="country8b">
+            <div angucomplete-multiselect id="ex8b" placeholder="Search countries" pause="100" selected-object="countrySelected8b" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" field-required="true" input-name="country8b">
             </div>
           </div>
         </form>
@@ -339,7 +342,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example9" class="page-anchor">Example 9 - Initial Value</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex9"
   placeholder="Search countries"
   pause="100"
@@ -355,7 +358,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex9" placeholder="Search countries" pause="100" selected-object="countrySelectedFn9" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" initial-value="countrySelected9">
+          <div angucomplete-multiselect id="ex9" placeholder="Search countries" pause="100" selected-object="countrySelectedFn9" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" initial-value="countrySelected9">
           </div>
         </div>
         <div class="result">
@@ -371,7 +374,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example10" class="page-anchor">Example 10 - Track Input Changes<span class="console">current input field value: {{ console10 }}</span></a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex10"
   placeholder="Search countries"
   pause="100"
@@ -386,7 +389,7 @@ $scope.localSearch = function(str, people) {
 &lt;/div&gt;
 </pre>
         <div class="padded-row">
-          <div angucomplete-alt id="ex10" placeholder="Search countries" pause="100" selected-object="countrySelected10" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" input-changed="inputChanged">
+          <div angucomplete-multiselect id="ex10" placeholder="Search countries" pause="100" selected-object="countrySelected10" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" input-changed="inputChanged">
           </div>
         </div>
 
@@ -397,7 +400,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example11" class="page-anchor">Example 11 - Auto Match</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex11"
   placeholder="Search countries"
   pause="100"
@@ -413,7 +416,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex11" placeholder="Search countries" pause="100" selected-object="countrySelected11" local-data="countries" search-fields="name" title-field="name" minlength="2" input-class="form-control form-control-small" match-class="highlight" auto-match="true">
+          <div angucomplete-multiselect id="ex11" placeholder="Search countries" pause="100" selected-object="countrySelected11" local-data="countries" search-fields="name" title-field="name" minlength="2" input-class="form-control form-control-small" match-class="highlight" auto-match="true">
           </div>
         </div>
         <div class="result">
@@ -429,7 +432,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example12" class="page-anchor">Example 12 - Track Input Focus<span class="console">input field focus state: {{ focusState }}</span></a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex12"
   placeholder="Search countries"
   pause="100"
@@ -445,7 +448,7 @@ $scope.localSearch = function(str, people) {
 &lt;/div&gt;
 </pre>
         <div class="padded-row">
-          <div angucomplete-alt id="ex12" placeholder="Search countries" pause="100" selected-object="countrySelected12" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small small-input" match-class="highlight" focus-in="focusIn()" focus-out="focusOut()">
+          <div angucomplete-multiselect id="ex12" placeholder="Search countries" pause="100" selected-object="countrySelected12" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small small-input" match-class="highlight" focus-in="focusIn()" focus-out="focusOut()">
           </div>
         </div>
 
@@ -456,7 +459,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example13" class="page-anchor">Example 13 - Disable/Enable Input<span class="console">disable <input type="checkbox" ng-model="disableInput"></span></a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex13"
   placeholder="Search countries"
   pause="100"
@@ -472,7 +475,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex13" placeholder="Search countries" pause="100" selected-object="countrySelected13" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" disable-input="disableInput">
+          <div angucomplete-multiselect id="ex13" placeholder="Search countries" pause="100" selected-object="countrySelected13" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" disable-input="disableInput">
           </div>
         </div>
         <div class="result">
@@ -526,7 +529,7 @@ $scope.localSearch = function(str, people) {
 
       <div class="large-padded-row">
 <pre>
-&lt;div angucomplete-alt
+&lt;div angucomplete-multiselect
   id="ex14"
   placeholder="Search countries"
   pause="100"
@@ -542,7 +545,7 @@ $scope.localSearch = function(str, people) {
 </pre>
       </div>
       <div class="large-padded-row">
-        <div angucomplete-alt
+        <div angucomplete-multiselect
           id="ex14"
           placeholder="Search countries"
           pause="100" selected-object="countrySelected14"
@@ -571,7 +574,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example15" class="page-anchor">Example 15 - Clear Input on Button Click</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt id="ex15"
+&lt;div angucomplete-multiselect id="ex15"
   placeholder="Search countries"
   maxlength="50"
   pause="100"
@@ -586,7 +589,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex15"
+          <div angucomplete-multiselect id="ex15"
                placeholder="Search countries"
                maxlength="50"
                pause="100"
@@ -617,7 +620,7 @@ $scope.localSearch = function(str, people) {
         <h3><a name="example16" class="page-anchor">Example 16 - Change Input on Button Click</a></h3>
         <div class="padded-row">
 <pre>
-&lt;div angucomplete-alt id="ex16"
+&lt;div angucomplete-multiselect id="ex16"
    placeholder="Search countries"
    maxlength="50"
    pause="100"
@@ -633,7 +636,7 @@ $scope.localSearch = function(str, people) {
 </pre>
         </div>
         <div class="padded-row">
-          <div angucomplete-alt id="ex16"
+          <div angucomplete-multiselect id="ex16"
                placeholder="Search countries"
                maxlength="50"
                pause="100"
@@ -665,10 +668,10 @@ $scope.localSearch = function(str, people) {
         <h5>Forked and developed by Hidenari Nozaki (<a href="http://twitter.com/ghiden">@ghiden</a>)</h5>
       </div>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+      <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"></script>
-      <script src="js/libs/angucomplete-alt.js"></script>
-      <script src="js/app.js"></script>
+      <script src="angucomplete-multiselect.js"></script>
+      <script src="app.js"></script>
     </div>
   </body>
 </html>
