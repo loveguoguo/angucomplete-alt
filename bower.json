@@ -1,7 +1,7 @@
 {
-  "name": "angucomplete-alt",
+  "name": "angucomplete-multiselect",
   "version": "2.5.0",
-  "homepage": "http://ghiden.github.io/angucomplete-alt/",
+  "homepage": "https://github.com/loveguoguo/angucomplete-multiselect/",
   "authors": [
     "Hidenari Nozaki <hidenari@gmail.com>"
   ],
@@ -13,8 +13,8 @@
   ],
   "license": "MIT",
   "main": [
-      "./angucomplete-alt.js",
-      "./angucomplete-alt.css"
+      "./angucomplete-multiselect.js",
+      "./angucomplete-multiselect.css"
   ],
   "ignore": [
     "example",
