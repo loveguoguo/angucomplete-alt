@@ -14,7 +14,11 @@ var app = angular.module('app', ["angucomplete-multiselect"]);
 
 ```html
 
-          <div angucomplete-multiselect id="ex5" placeholder="Search projects" pause="500" selected-object="selectedProject" remote-url="https://api.github.com/search/repositories" remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="name" description-field="description" minlength="2" input-class="form-control form-control-small" match-class="highlight" multiple-select=true selected-objects="myobjects" my-model="mycountries"  my-field="id">
+          <div angucomplete-multiselect id="ex5" placeholder="Search projects" pause="500" 
+            selected-object="selectedProject" remote-url="https://api.github.com/search/repositories" 
+            remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="name" 
+            description-field="description" minlength="2" input-class="form-control form-control-small" 
+            match-class="highlight" multiple-select=true selected-objects="myobjects" my-model="mycountries"  my-field="id">
           </div>
 ```
 
