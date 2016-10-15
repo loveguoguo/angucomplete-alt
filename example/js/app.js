@@ -317,10 +317,10 @@ app.controller('MainController', ['$scope', '$http', '$rootScope',
      */
     $scope.clearInput = function (id) {
       if (id) {
-        $scope.$broadcast('angucomplete-alt:clearInput', id);
+        $scope.$broadcast('angucomplete-multiselect:clearInput', id);
       }
       else{
-        $scope.$broadcast('angucomplete-alt:clearInput');
+        $scope.$broadcast('angucomplete-multiselect:clearInput');
       }
     }
 
@@ -332,7 +332,7 @@ app.controller('MainController', ['$scope', '$http', '$rootScope',
     $scope.changeInput = function (id) {
       if (id) {
         var pos = Math.floor(Math.random() * ($scope.countries.length - 1));
-        $scope.$broadcast('angucomplete-alt:changeInput', id, $scope.countries[pos]);
+        $scope.$broadcast('angucomplete-multiselect:changeInput', id, $scope.countries[pos]);
       }
     }
 
