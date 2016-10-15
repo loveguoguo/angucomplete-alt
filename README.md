@@ -19,7 +19,7 @@ var app = angular.module('app', ["angucomplete-multiselect"]);
 ```
 
 
-below is the angucomplete-alt doc(replace angucomplete-alt with angucomplete-multiselect)
+##below is the angucomplete-alt doc(replace angucomplete-alt with angucomplete-multiselect)
 
 
 ###Key Features
