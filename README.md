@@ -18,7 +18,8 @@ var app = angular.module('app', ["angucomplete-multiselect"]);
             selected-object="selectedProject" remote-url="https://api.github.com/search/repositories" 
             remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="name" 
             description-field="description" minlength="2" input-class="form-control form-control-small" 
-            match-class="highlight" multiple-select=true selected-objects="myobjects" my-model="mycountries"  my-field="id">
+            match-class="highlight" multiple-select=true selected-objects="myobjects" my-model="mycountries"  
+            my-field="id">
           </div>
 ```
 
